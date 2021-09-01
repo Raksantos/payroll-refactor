@@ -49,8 +49,6 @@
 
 ### Generative Speculation
 
-- Atributo includesUnionTax da classe Paycheck não é utilizado; | Não Corrigido |
-
 - Construtores vazios de várias classes não são utilizados; | Não Corrigido |
 
 - Métodos getters e setters de várias classes nunca são utilizados; | Não Corrigido |
@@ -58,7 +56,6 @@
 ### Data Class
 
 - A classe Paycheck conta apenas com dados em seus atributos e um método toString, o restante da lógica relacionada é lidado por outras classes; | Não Corrigido |
-
 
 - Quantidade numerosa de métodos na classe EmployeeController; | Não Corrigido |
 
