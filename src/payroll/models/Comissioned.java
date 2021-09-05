@@ -2,6 +2,10 @@ package models;
 
 import models.services.SaleResult;
 import java.util.ArrayList;
+
+import java.time.LocalDate;
+
+import models.services.payment.PayCheck;
 import models.services.payment.PaymentData;
 
 public class Comissioned extends Employee{
@@ -34,6 +38,44 @@ public class Comissioned extends Employee{
 
     public void setSales(ArrayList<SaleResult> sales) {
         this.sales = sales;
+    }
+
+    @Override
+    public PayCheck makePayment(LocalDate date){
+        PayCheck payCheck;
+        Double paymentValue = this.getSalary();
+        Double taxes = calculateServiceTaxes(); 
+        boolean haveTax = false;
+
+        Comissioned auxEmp = (Comissioned) this;
+
+        ArrayList<SaleResult> sales = auxEmp.getSales();
+
+        if(!sales.isEmpty()){
+            for(int i = 0; i < sales.size(); i++){
+                if(sales.get(i).getDate().compareTo(date) <= 0){
+                    paymentValue += calculateComission(auxEmp);
+
+                    sales.remove(i);
+                }
+            }   
+        }
+
+        auxEmp.setSales(sales);
+
+        paymentValue -= taxes;
+        
+        payCheck = new PayCheck(this, paymentValue, taxes, haveTax, date);
+        this.getPaymentData().getPayChecks().add(payCheck);
+        return payCheck;
+    }
+
+    public double calculateComission(Comissioned employee){
+        double totalComission = 0.0;
+
+        totalComission += this.getComission();
+
+        return totalComission;
     }
 
     @Override
