@@ -3,11 +3,13 @@ package utils;
 import java.time.DateTimeException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.Stack;
+//import java.util.Stack;
 
 import controllers.EmployeeController;
 import controllers.PaymentController;
 import models.Company;
+
+import command.CommandCompany;
 
 public class Menu {
     public static void menu(Company company){
@@ -15,10 +17,8 @@ public class Menu {
         int option = 13;
 
         Scanner input = new Scanner(System.in);
-
-        Stack<String> undo = new Stack<>();
-
-        Stack<String> redo = new Stack<>();
+        
+        CommandCompany command = new CommandCompany();
         
         try{
             while(option != 0){
@@ -47,7 +47,9 @@ public class Menu {
                         System.out.println("Thank you! See you soon.");
                         break;
                     case 1:
-                        undo.push(GeneralUtils.saveState(company));
+
+                        command.push(company);
+
                         EmployeeController.registerNewEmployee(input, company.getEmployees());
                         
                         break;
@@ -55,7 +57,7 @@ public class Menu {
 
                         if(!EmployeeUtils.warningEmptyEmployeesList(company.getEmployees())){
 
-                            undo.push(GeneralUtils.saveState(company));
+                            command.push(company);
 
                             EmployeeController.listEmployees(company.getEmployees());    
                         
@@ -67,7 +69,7 @@ public class Menu {
 
                         if(!EmployeeUtils.warningEmptyEmployeesList(company.getEmployees())){
 
-                            undo.push(GeneralUtils.saveState(company));
+                            command.push(company);
 
                             EmployeeUtils.listHourly(company.getEmployees());
 
@@ -78,7 +80,7 @@ public class Menu {
                     case 4:
                         if(!EmployeeUtils.warningEmptyEmployeesList(company.getEmployees())){
 
-                            undo.push(GeneralUtils.saveState(company));
+                            command.push(company);
 
                             EmployeeUtils.listComissioned(company.getEmployees());
     
@@ -89,7 +91,7 @@ public class Menu {
                     case 5:
                         if(!EmployeeUtils.warningEmptyEmployeesList(company.getEmployees())){
 
-                            undo.push(GeneralUtils.saveState(company));
+                            command.push(company);
 
                             EmployeeController.listEmployees(company.getEmployees());
     
@@ -99,7 +101,7 @@ public class Menu {
                     case 6:
                         if(!EmployeeUtils.warningEmptyEmployeesList(company.getEmployees())){
 
-                            undo.push(GeneralUtils.saveState(company));
+                            command.push(company);
 
                             EmployeeController.listEmployees(company.getEmployees());
     
@@ -114,7 +116,7 @@ public class Menu {
                     case 8:
                         if(!EmployeeUtils.warningEmptyEmployeesList(company.getEmployees())){
 
-                            undo.push(GeneralUtils.saveState(company));
+                            command.push(company);
 
                             EmployeeController.listEmployees(company.getEmployees());
 
@@ -133,7 +135,7 @@ public class Menu {
                     case 10:
                         if(!EmployeeUtils.warningEmptyEmployeesList(company.getEmployees())){
 
-                            undo.push(GeneralUtils.saveState(company));
+                            command.push(company);
 
                             EmployeeController.listEmployees(company.getEmployees());
 
@@ -143,7 +145,7 @@ public class Menu {
                         break;
                     case 11:
                         
-                        undo.push(GeneralUtils.saveState(company));
+                        command.push(company);
                         
                         company.getPaymentSchedules().add(EmployeeUtils.createPaymentSchedule(input));
                         
@@ -153,24 +155,14 @@ public class Menu {
                         break;
 
                     case 13:
-                        if(!undo.isEmpty()){
-                            redo.push(GeneralUtils.saveState(company));
-                            String state = undo.pop();
-                            company = GeneralUtils.restoreState(state);
-                        }else{
-                            System.out.println("\n\nNothing to undo!\n\n");
-                        }
+                        
+                        company = command.undo(company);
                         
                         break;
 
                     case 14:
-                        if(!redo.isEmpty()){
-                            undo.push(GeneralUtils.saveState(company));
-                            String state = redo.pop();
-                            company = GeneralUtils.restoreState(state);
-                        }else{
-                            System.out.println("\n\nNothing to redo!\n\n");
-                        }
+                        
+                        company = command.redo(company);
 
                         break;
                     default:
