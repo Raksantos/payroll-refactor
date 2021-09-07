@@ -1,4 +1,4 @@
-package command;
+package memento;
 
 import models.Company;
 import java.util.Stack;
@@ -8,17 +8,17 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Base64;
 
-public class CommandCompany {
+public class MementoCompany {
     private Stack<String> undo;
 
     private Stack<String> redo;
 
-    public CommandCompany(){
+    public MementoCompany(){
         this.undo = new Stack<>();;
         this.redo = new Stack<>();;
     }
 
-    public void push(Company company){
+    public void save(Company company){
         this.undo.push(this.saveState(company));
     }
 

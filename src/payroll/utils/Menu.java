@@ -7,9 +7,8 @@ import java.util.Scanner;
 
 import controllers.EmployeeController;
 import controllers.PaymentController;
+import memento.MementoCompany;
 import models.Company;
-
-import command.CommandCompany;
 
 public class Menu {
     public static void menu(Company company){
@@ -18,7 +17,7 @@ public class Menu {
 
         Scanner input = new Scanner(System.in);
         
-        CommandCompany command = new CommandCompany();
+        MementoCompany memento = new MementoCompany();
         
         try{
             while(option != 0){
@@ -48,7 +47,7 @@ public class Menu {
                         break;
                     case 1:
 
-                        command.push(company);
+                        memento.save(company);
 
                         EmployeeController.registerNewEmployee(input, company.getEmployees());
                         
@@ -57,7 +56,7 @@ public class Menu {
 
                         if(!EmployeeUtils.warningEmptyEmployeesList(company.getEmployees())){
 
-                            command.push(company);
+                            memento.save(company);
 
                             EmployeeController.listEmployees(company.getEmployees());    
                         
@@ -69,7 +68,7 @@ public class Menu {
 
                         if(!EmployeeUtils.warningEmptyEmployeesList(company.getEmployees())){
 
-                            command.push(company);
+                            memento.save(company);
 
                             EmployeeUtils.listHourly(company.getEmployees());
 
@@ -80,7 +79,7 @@ public class Menu {
                     case 4:
                         if(!EmployeeUtils.warningEmptyEmployeesList(company.getEmployees())){
 
-                            command.push(company);
+                            memento.save(company);
 
                             EmployeeUtils.listComissioned(company.getEmployees());
     
@@ -91,7 +90,7 @@ public class Menu {
                     case 5:
                         if(!EmployeeUtils.warningEmptyEmployeesList(company.getEmployees())){
 
-                            command.push(company);
+                            memento.save(company);
 
                             EmployeeController.listEmployees(company.getEmployees());
     
@@ -101,7 +100,7 @@ public class Menu {
                     case 6:
                         if(!EmployeeUtils.warningEmptyEmployeesList(company.getEmployees())){
 
-                            command.push(company);
+                            memento.save(company);
 
                             EmployeeController.listEmployees(company.getEmployees());
     
@@ -116,7 +115,7 @@ public class Menu {
                     case 8:
                         if(!EmployeeUtils.warningEmptyEmployeesList(company.getEmployees())){
 
-                            command.push(company);
+                            memento.save(company);
 
                             EmployeeController.listEmployees(company.getEmployees());
 
@@ -135,7 +134,7 @@ public class Menu {
                     case 10:
                         if(!EmployeeUtils.warningEmptyEmployeesList(company.getEmployees())){
 
-                            command.push(company);
+                            memento.save(company);
 
                             EmployeeController.listEmployees(company.getEmployees());
 
@@ -145,7 +144,7 @@ public class Menu {
                         break;
                     case 11:
                         
-                        command.push(company);
+                        memento.save(company);
                         
                         company.getPaymentSchedules().add(EmployeeUtils.createPaymentSchedule(input));
                         
@@ -156,13 +155,13 @@ public class Menu {
 
                     case 13:
                         
-                        company = command.undo(company);
+                        company = memento.undo(company);
                         
                         break;
 
                     case 14:
                         
-                        company = command.redo(company);
+                        company = memento.redo(company);
 
                         break;
                     default:
