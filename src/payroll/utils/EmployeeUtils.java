@@ -7,6 +7,9 @@ import java.util.Scanner;
 import models.*;
 import models.services.payment.PaymentData;
 import models.services.payment.PaymentSchedule;
+import strategy.BiWeeklyStrategy;
+import strategy.MonthlyStrategy;
+import strategy.WeeklyStrategy;
 
 
 public class EmployeeUtils {
@@ -209,10 +212,10 @@ public class EmployeeUtils {
                 int day = input.nextInt();
 
                 if(day < 0 || day > 28){
-                    return new PaymentSchedule(null, null, "Monthly");
+                    return new PaymentSchedule(null, null, "Monthly", new MonthlyStrategy());
                 }
                 else{
-                    return new PaymentSchedule(day, null, "Monthly");
+                    return new PaymentSchedule(day, null, "Monthly", new MonthlyStrategy());
                 }
             case 2:
                 System.out.println("Choose the day of the week: ");
@@ -222,9 +225,9 @@ public class EmployeeUtils {
                 weekDay = DayOfWeek.of(week);
 
                 if(week < 0 || week > 5){
-                    return new PaymentSchedule(null, DayOfWeek.FRIDAY, "Weekly");
+                    return new PaymentSchedule(null, DayOfWeek.FRIDAY, "Weekly", new WeeklyStrategy());
                 }else{
-                    return new PaymentSchedule(null, weekDay, "Weekly");
+                    return new PaymentSchedule(null, weekDay, "Weekly", new WeeklyStrategy());
                 }
             case 3:
                 System.out.println("Choose the day of the week: ");
@@ -234,13 +237,13 @@ public class EmployeeUtils {
                 weekDay = DayOfWeek.of(week);
                 
                 if(week < 0 || week > 5){
-                    return new PaymentSchedule(null, DayOfWeek.FRIDAY, "Every two weeks");
+                    return new PaymentSchedule(null, DayOfWeek.FRIDAY, "Every two weeks", new BiWeeklyStrategy());
                 }else{
-                    return new PaymentSchedule(null, weekDay, "Every two weeks");
+                    return new PaymentSchedule(null, weekDay, "Every two weeks", new BiWeeklyStrategy());
                 }
             default:
                 System.out.println("\n\nInvalid option, created an month schedule by default!!\n\n");
-                return new PaymentSchedule(null, null, "Monthly");
+                return new PaymentSchedule(null, null, "Monthly", new MonthlyStrategy());
         }
 
     }

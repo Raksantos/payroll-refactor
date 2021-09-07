@@ -2,7 +2,6 @@ package controllers;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -68,25 +67,15 @@ public class PaymentController {
         System.out.println(payCheckList);
     }
 
+    public static int getMethodDiv(Employee employee){
+        return employee.getPaymentData().getPaymentSchedule().getStrategy().getMethodDiv();
+    }
+
     public static boolean verifyPayDate(Employee employee, int week, LocalDate current){
         boolean dateInSchedule = false;
-        PaymentSchedule empSchedule = employee.getPaymentData().getPaymentSchedule();
+        PaymentSchedule employeeSchedule = employee.getPaymentData().getPaymentSchedule();
 
-        switch (empSchedule.getSchedule()) {
-            case "Monthly":
-                if (empSchedule.getMonthDay() == null) {
-                    dateInSchedule = current.isEqual(GeneralUtils.getLastJobDay(current.with(TemporalAdjusters.lastDayOfMonth())));
-                } else {
-                    dateInSchedule = (empSchedule.getMonthDay() == current.getDayOfMonth());
-                }
-                break;
-            case "Weekly":
-                dateInSchedule = (empSchedule.getWeekDay() == current.getDayOfWeek());
-                break;
-            case "Every two weeks":
-                dateInSchedule = (empSchedule.getWeekDay() == current.getDayOfWeek() && week%2==0);
-                break;
-        }
+        dateInSchedule = employee.getPaymentData().getPaymentSchedule().getStrategy().getDateInSchedule(employeeSchedule, week, current);
 
         return dateInSchedule;
     }
