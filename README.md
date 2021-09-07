@@ -77,4 +77,4 @@
 
 ### Move method
 
-- O método verifyPayDate() foi movido para a classe PaymentData, pois lida com os paychecks (comprovantes de pagamento) e as agendas | Feito - [Link]() |
+- O método verifyPayDate() foi movido para a classe PaymentData, pois lida com os paychecks (comprovantes de pagamento) e as agendas | Feito - [Link](https://github.com/Raksantos/payroll-refactor/commit/84a74536642c40f87f63a3037e9b9b1afd9562f8) |
