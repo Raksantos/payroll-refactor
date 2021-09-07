@@ -53,15 +53,17 @@
 
 ### Data Class
 
-- A classe Paycheck conta apenas com dados em seus atributos e um método toString, o restante da lógica relacionada é lidado por outras classes; | Não Corrigido |
-
 - Quantidade numerosa de métodos na classe EmployeeController; | Corrigido durante a própria AB1 com as classes utils|
+
+### Feature Envy
+
+- O método VerifyPayDate() está mais relacionado à classe PaymentData, que lida com os dados contidos na classe PayCheck. | Corrigido - [Link](https://github.com/Raksantos/payroll-refactor/commit/84a74536642c40f87f63a3037e9b9b1afd9562f8) |
 
 ## Refactoring
 
 ### Strategy
 
-- Foi aplicado o Design Pattern Strategy para solucionar um code smell da classe PaymentsControl, no método VerifyPayDate(), definindo uma interface com os métodos abstratos criando uma classe concreta para cada tipo de agenda, com as implementações do comportamento adequado para cada uma delas. Na classe PaymentSchedule, foi adicionado um atributo strategy, além disso foi adicionado um novo método nessa interface, de forma a modularizar o código (método getDateInSchedule) | Feito - [Link] (https://github.com/Raksantos/payroll-refactor/commit/e869953224a5217a11b7ed6f3cdf40bb9b619cbd)|;
+- Foi aplicado o Design Pattern Strategy para solucionar um code smell da classe PaymentsControl, no método VerifyPayDate(), definindo uma interface com os métodos abstratos criando uma classe concreta para cada tipo de agenda, com as implementações do comportamento adequado para cada uma delas. Na classe PaymentSchedule, foi adicionado um atributo strategy, além disso foi adicionado um novo método nessa interface, de forma a modularizar o código (método getDateInSchedule) | Feito - [Link](https://github.com/Raksantos/payroll-refactor/commit/e869953224a5217a11b7ed6f3cdf40bb9b619cbd)|;
 
 ### Command
 
