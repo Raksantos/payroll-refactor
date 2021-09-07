@@ -49,15 +49,15 @@
 
 ### Generative Speculation
 
-- Construtores vazios de várias classes não são utilizados; | Corrigido |
+- Construtores vazios de várias classes não são utilizados; | Corrigido - [Link](https://github.com/Raksantos/payroll-refactor/commit/60a7ae71a9604d2545e90ae4b06c909b3bb9f1bf)|
 
-- Métodos getters e setters de várias classes nunca são utilizados; | Corrigido |
+- Métodos getters e setters de várias classes nunca são utilizados; | Corrigido - [Link](https://github.com/Raksantos/payroll-refactor/commit/60a7ae71a9604d2545e90ae4b06c909b3bb9f1bf)|
 
 ### Data Class
 
 - A classe Paycheck conta apenas com dados em seus atributos e um método toString, o restante da lógica relacionada é lidado por outras classes; | Não Corrigido |
 
-- Quantidade numerosa de métodos na classe EmployeeController; | Não Corrigido |
+- Quantidade numerosa de métodos na classe EmployeeController; | Corrigido durante a própria AB1 com as classes utils|
 
 ## Refactoring
 
