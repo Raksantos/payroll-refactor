@@ -49,9 +49,9 @@
 
 ### Generative Speculation
 
-- Construtores vazios de várias classes não são utilizados; | Não Corrigido |
+- Construtores vazios de várias classes não são utilizados; | Corrigido |
 
-- Métodos getters e setters de várias classes nunca são utilizados; | Não Corrigido |
+- Métodos getters e setters de várias classes nunca são utilizados; | Corrigido |
 
 ### Data Class
 
@@ -75,4 +75,4 @@
 
 ### Move Accumulation to Collecting Parameter
 
-- Simplificação do toString das classes Employee e PaymentList | Feito - [Link](https://github.com/Raksantos/payroll-refactor/commit/504e40f021569fc06b3a857b2ee0d947ad871db6) - [Link]() |.
+- Simplificação do toString das classes Employee e PaymentList | Feito - [Link](https://github.com/Raksantos/payroll-refactor/commit/504e40f021569fc06b3a857b2ee0d947ad871db6) |.
