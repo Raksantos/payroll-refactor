@@ -9,7 +9,6 @@ import models.Company;
 import models.Employee;
 import models.services.payment.PayCheck;
 import models.services.payment.PaymentList;
-import models.services.payment.PaymentSchedule;
 import utils.EmployeeUtils;
 import utils.GeneralUtils;
 
@@ -49,7 +48,7 @@ public class PaymentController {
             }
 
             for(Employee employee : company.getEmployees()){
-                if(verifyPayDate(employee, week, current)){
+                if(employee.getPaymentData().verifyPayDate(employee, week, current)){
                     payCheck = employee.makePayment(current);
                     payCheckList.add(payCheck);
                 }
@@ -64,15 +63,6 @@ public class PaymentController {
         company.setPaymentLists(paymentLists);
 
         System.out.println(payCheckList);
-    }
-
-    public static boolean verifyPayDate(Employee employee, int week, LocalDate current){
-        boolean dateInSchedule = false;
-        PaymentSchedule employeeSchedule = employee.getPaymentData().getPaymentSchedule();
-
-        dateInSchedule = employee.getPaymentData().getPaymentSchedule().getStrategy().getDateInSchedule(employeeSchedule, week, current);
-        
-        return dateInSchedule;
     }
 
 }

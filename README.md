@@ -39,8 +39,6 @@
 
 ### Long Method
 
-- Declarações de Switch/Case muito extensas para lidar com as requisições do usuáriona classe Menu, no diretório de utils; | Não Corrigido |
-
 - Métodos extensos que acumulam muitas variáveis locais; | Não Corrigido |
 
 - Métodos que acumulam decisões lógicas (toStrings); | Corrigido - [Link](https://github.com/Raksantos/payroll-refactor/commit/504e40f021569fc06b3a857b2ee0d947ad871db6) |
@@ -63,7 +61,7 @@
 
 ### Strategy
 
-- Utilizado para reduzir a quantidade de ifs e switchs nas classes Menu;
+- Foi aplicado o Design Pattern Strategy para solucionar um code smell da classe PaymentsControl, no método VerifyPayDate(), definindo uma interface com os métodos abstratos criando uma classe concreta para cada tipo de agenda, com as implementações do comportamento adequado para cada uma delas. Na classe PaymentSchedule, foi adicionado um atributo strategy, além disso foi adicionado um novo método nessa interface, de forma a modularizar o código (método getDateInSchedule) | Feito - [Link] (https://github.com/Raksantos/payroll-refactor/commit/e869953224a5217a11b7ed6f3cdf40bb9b619cbd)|;
 
 ### Command
 
@@ -71,8 +69,12 @@
 
 ### Remove Generative Speculation
 
-- Foi aplicado o Design Pattern Strategy para solucionar um code smell da classe PaymentsControl, no VerifyPayDate(), definindo uma interface com os métodos abstratos criando uma classe concreta para cada tipo de agenda, com as implementações do comportamento adequado para cada uma delas. Na classe PaymentSchedule, foi adicionado um atributo strategy, além disso foi adicionado um novo método nessa interface, de forma a modularizar o código (método getDateInSchedule) - [Link](https://github.com/Raksantos/payroll-refactor/commit/60a7ae71a9604d2545e90ae4b06c909b3bb9f1bf) |
+- Alguns métodos construtores, getters e setters nunca foram utilizados. Logo, foram removidos na refatoração. | Feito - [Link](https://github.com/Raksantos/payroll-refactor/commit/60a7ae71a9604d2545e90ae4b06c909b3bb9f1bf) |
 
 ### Move Accumulation to Collecting Parameter
 
 - Simplificação do toString das classes Employee e PaymentList | Feito - [Link](https://github.com/Raksantos/payroll-refactor/commit/504e40f021569fc06b3a857b2ee0d947ad871db6) |.
+
+### Move method
+
+- O método verifyPayDate() foi movido para a classe PaymentData, pois lida com os paychecks (comprovantes de pagamento) e as agendas | Feito - [Link]() |
