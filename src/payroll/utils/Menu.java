@@ -73,7 +73,7 @@ public class Menu {
 
                             EmployeeUtils.listHourly(company.getEmployees());
 
-                            EmployeeController.launchTimeCard(input, company.getEmployees());
+                            PaymentController.launchTimeCard(input, company.getEmployees());
                         }
     
                         break;
@@ -84,7 +84,7 @@ public class Menu {
 
                             EmployeeUtils.listComissioned(company.getEmployees());
     
-                            EmployeeController.launchSaleResult(input, company.getEmployees());
+                            PaymentController.launchSaleResult(input, company.getEmployees());
                         }
                         
                         break;
@@ -95,7 +95,7 @@ public class Menu {
 
                             EmployeeController.listEmployees(company.getEmployees());
     
-                            EmployeeController.launchServiceTax(input, company.getEmployees());
+                            PaymentController.launchServiceTax(input, company.getEmployees());
                         }
                         break;
                     case 6:
