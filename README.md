@@ -43,7 +43,7 @@
 
 - Métodos que acumulam decisões lógicas (toStrings); | Corrigido - [Link](https://github.com/Raksantos/payroll-refactor/commit/504e40f021569fc06b3a857b2ee0d947ad871db6) |
 
-- Método launch payroll com muitas responsabilidades de fazer o pagamento de acordo com o tipo de usuário | Corrigido - [Link](https://github.com/Raksantos/payroll-refactor/commit/032f5136cb6b7e0c6b6a33a01521b71003be2a45) |;
+- Método launch payroll com muitas responsabilidades de fazer o pagamento de acordo com o tipo de usuário | Corrigido - [Link](https://github.com/Raksantos/payroll-refactor/commit/032f5136cb6b7e0c6b6a33a01521b71003be2a45) |
 
 ### Generative Speculation
 
@@ -63,7 +63,7 @@
 
 ### Strategy
 
-- Foi aplicado o Design Pattern Strategy para solucionar um code smell da classe PaymentsControl, no método VerifyPayDate(), definindo uma interface com os métodos abstratos criando uma classe concreta para cada tipo de agenda, com as implementações do comportamento adequado para cada uma delas. Na classe PaymentSchedule, foi adicionado um atributo strategy, além disso foi adicionado um novo método nessa interface, de forma a modularizar o código (método getDateInSchedule) | Feito - [Link](https://github.com/Raksantos/payroll-refactor/commit/e869953224a5217a11b7ed6f3cdf40bb9b619cbd) |;
+- Foi aplicado o Design Pattern Strategy para solucionar um code smell da classe PaymentsControl, no método VerifyPayDate(), definindo uma interface com os métodos abstratos criando uma classe concreta para cada tipo de agenda, com as implementações do comportamento adequado para cada uma delas. Na classe PaymentSchedule, foi adicionado um atributo strategy, além disso foi adicionado um novo método nessa interface, de forma a modularizar o código (método getDateInSchedule) | Feito - [Link](https://github.com/Raksantos/payroll-refactor/commit/e869953224a5217a11b7ed6f3cdf40bb9b619cbd) |
 
 ### Memento
 
@@ -75,7 +75,7 @@
 
 ### Move Accumulation to Collecting Parameter
 
-- Simplificação do toString das classes Employee e PaymentList | Feito - [Link](https://github.com/Raksantos/payroll-refactor/commit/504e40f021569fc06b3a857b2ee0d947ad871db6) |.
+- Simplificação do toString das classes Employee e PaymentList | Feito - [Link](https://github.com/Raksantos/payroll-refactor/commit/504e40f021569fc06b3a857b2ee0d947ad871db6) |
 
 ### Move method
 
