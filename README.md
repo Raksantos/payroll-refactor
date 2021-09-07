@@ -71,7 +71,7 @@
 
 ### Remove Generative Speculation
 
-- Alguns métodos construtores, getters e setters nunca foram utilizados. Logo, foram removidos na refatoração. O mesmo aconteceu com o método readSchedule da classe GeneralUtils e a variável schedule no register employee.
+- Alguns métodos construtores, getters e setters nunca foram utilizados. Logo, foram removidos na refatoração. | Feito - [Link](https://github.com/Raksantos/payroll-refactor/commit/60a7ae71a9604d2545e90ae4b06c909b3bb9f1bf) |
 
 ### Move Accumulation to Collecting Parameter
 
