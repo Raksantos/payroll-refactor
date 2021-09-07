@@ -27,4 +27,17 @@ public class Salaried extends Employee{
         this.getPaymentData().getPayChecks().add(payCheck);
         return payCheck;
     }
+
+    @Override
+    public String toString(){
+        String data = "\n{\n\tUser id: " + getId();
+        data += "\n\tName: " + getName();
+        data += "\n\tAddress: " + getAddress();
+        data += "\n\tSalary: " + getSalary();
+        data += "\n\tService Tax: " + getServiceTax();
+        data += "\n\tPayment Data: {" + getPaymentData();
+        data += printSyndicate();
+        data += "\n}\n";
+        return data;
+    }
 }

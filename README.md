@@ -67,7 +67,7 @@
 
 ### Command
 
-- Refatoração das funcionalidades de Undo/Redo para uma classe específica; | Corrigido - [Link](https://github.com/Raksantos/payroll-refactor/commit/f244c46228b8753cf55b93103cfeabae16020631) |
+- Refatoração das funcionalidades de Undo/Redo para uma classe específica; | Feito - [Link](https://github.com/Raksantos/payroll-refactor/commit/f244c46228b8753cf55b93103cfeabae16020631) |
 
 ### Remove Generative Speculation
 
