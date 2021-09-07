@@ -224,7 +224,7 @@ public class EmployeeUtils {
 
                 weekDay = DayOfWeek.of(week);
 
-                if(week < 0 || week > 5){
+                if(week < 0 || week > 6){
                     return new PaymentSchedule(null, DayOfWeek.FRIDAY, "Weekly", new WeeklyStrategy());
                 }else{
                     return new PaymentSchedule(null, weekDay, "Weekly", new WeeklyStrategy());
@@ -236,7 +236,7 @@ public class EmployeeUtils {
 
                 weekDay = DayOfWeek.of(week);
                 
-                if(week < 0 || week > 5){
+                if(week < 0 || week > 6){
                     return new PaymentSchedule(null, DayOfWeek.FRIDAY, "Every two weeks", new BiWeeklyStrategy());
                 }else{
                     return new PaymentSchedule(null, weekDay, "Every two weeks", new BiWeeklyStrategy());

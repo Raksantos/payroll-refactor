@@ -30,10 +30,6 @@ public class PaymentSchedule implements Serializable{
         return monthDay;
     }
 
-    public void setMonthDay(Integer monthDay) {
-        this.monthDay = monthDay;
-    }
-
     public DayOfWeek getWeekDay() {
         return weekDay;
     }

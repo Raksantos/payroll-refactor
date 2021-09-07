@@ -50,8 +50,15 @@ public class PaymentController {
 
             for(Employee employee : company.getEmployees()){
                 if(verifyPayDate(employee, week, current)){
-                    payCheck = employee.makePayment(current);
-                    payCheckList.add(payCheck);
+                    if(employee.getPaymentData().getPaymentSchedule().getStrategy().getMethodDiv() == 2){//Verifying if an employee is biWeek
+                        if(week%2 != 0){//If is a pay week
+                            payCheck = employee.makePayment(current);
+                            payCheckList.add(payCheck);
+                        }
+                    }else{
+                        payCheck = employee.makePayment(current);
+                        payCheckList.add(payCheck);
+                    }
                 }
             }   
         }
@@ -76,7 +83,7 @@ public class PaymentController {
         PaymentSchedule employeeSchedule = employee.getPaymentData().getPaymentSchedule();
 
         dateInSchedule = employee.getPaymentData().getPaymentSchedule().getStrategy().getDateInSchedule(employeeSchedule, week, current);
-
+        
         return dateInSchedule;
     }
 

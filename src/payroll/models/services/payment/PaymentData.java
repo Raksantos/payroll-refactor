@@ -15,11 +15,6 @@ public class PaymentData implements Serializable{
     private PaymentSchedule paymentSchedule;
 
     private ArrayList<PayCheck> payChecks;
-
-    PaymentData(){
-
-    }
-
     
     public PaymentData(String bank, String agency, String account, String paymentMethod, PaymentSchedule paymentSchedule){
         this.bank = bank;
@@ -50,32 +45,8 @@ public class PaymentData implements Serializable{
         return paymentSchedule;
     }
 
-    public void setAccount(String account) {
-        this.account = account;
-    }
-
-    public void setAgency(String agency) {
-        this.agency = agency;
-    }
-
-    public void setBank(String bank) {
-        this.bank = bank;
-    }
-
-    public void setPaymentMethod(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
-    }
-
-    public void setSchedule(PaymentSchedule schedule) {
-        this.paymentSchedule = schedule;
-    }
-
     public ArrayList<PayCheck> getPayChecks() {
         return payChecks;
-    }
-
-    public void setPayChecks(ArrayList<PayCheck> payChecks) {
-        this.payChecks = payChecks;
     }
 
     @Override

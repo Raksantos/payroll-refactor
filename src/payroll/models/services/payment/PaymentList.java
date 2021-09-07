@@ -9,10 +9,6 @@ public class PaymentList  implements Serializable{
 
     private LocalDate date;
 
-    public PaymentList(){
-
-    }
-
     public PaymentList(ArrayList<PayCheck> payChecks, LocalDate date) {
         this.payChecks = payChecks;
         this.date = date;
@@ -22,25 +18,21 @@ public class PaymentList  implements Serializable{
         return payChecks;
     }
 
-    public void setPayChecks(ArrayList<PayCheck> payChecks) {
-        this.payChecks = payChecks;
-    }
-
     public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
     @Override
     public String toString() {
-        String str = "\nLista de pagamentos";
-        str += "\nData: " + this.getDate() + ", ";
+        return "\nLista de pagamentos\nData: "+ this.getDate() +", "+listPayChecks();
+    }
+
+    private String listPayChecks(){
+        String str = "";
         for(PayCheck paycheck : this.getPayChecks()){
             str += paycheck.toString();
         }
+
         return str;
     }
 }

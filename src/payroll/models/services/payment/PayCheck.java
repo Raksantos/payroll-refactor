@@ -16,10 +16,6 @@ public class PayCheck implements Serializable{
 
     private LocalDate date;
 
-    public PayCheck(){
-        
-    }
-
     public PayCheck(Employee employee, Double paymentValue, Double taxes, boolean haveTax, LocalDate date){
         this.employee = employee;
         this.paymentValue = paymentValue;
@@ -35,10 +31,6 @@ public class PayCheck implements Serializable{
     public Double getTaxes() {
         return taxes;
     }
-    
-    public void setTaxes(Double taxes) {
-        this.taxes = taxes;
-    }
 
     public Employee getEmployee() {
         return employee;
@@ -50,22 +42,6 @@ public class PayCheck implements Serializable{
 
     public boolean isHaveTax() {
         return haveTax;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
-    public void setHaveTax(boolean haveTax) {
-        this.haveTax = haveTax;
-    }
-
-    public void setPaymentValue(Double paymentValue) {
-        this.paymentValue = paymentValue;
     }
 
     @Override

@@ -11,10 +11,6 @@ public class TimeCard implements Serializable{
 
     private LocalTime timeOut;
 
-    public TimeCard(){
-        
-    }
-
     public TimeCard(LocalDate date, LocalTime timeEntry, LocalTime timeOut){
         this.date = date;
         this.timeEntry = timeEntry;
@@ -31,17 +27,5 @@ public class TimeCard implements Serializable{
 
     public LocalTime getTimeOut() {
         return timeOut;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public void setTimeEntry(LocalTime timeEntry) {
-        this.timeEntry = timeEntry;
-    }
-
-    public void setTimeOut(LocalTime timeOut) {
-        this.timeOut = timeOut;
     }
 }
