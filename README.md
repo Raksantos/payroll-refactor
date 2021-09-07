@@ -43,9 +43,9 @@
 
 - Métodos extensos que acumulam muitas variáveis locais; | Não Corrigido |
 
-- Métodos que acumulam decisões lógicas (toStrings); | Não Corrigido |
+- Métodos que acumulam decisões lógicas (toStrings); | Corrigido - [Link](https://github.com/Raksantos/payroll-refactor/commit/504e40f021569fc06b3a857b2ee0d947ad871db6) |
 
-- Método launch payroll com muitas responsabilidades de fazer o pagamento de acordo com o tipo de usuário;
+- Método launch payroll com muitas responsabilidades de fazer o pagamento de acordo com o tipo de usuário | Corrigido - [Link](https://github.com/Raksantos/payroll-refactor/commit/032f5136cb6b7e0c6b6a33a01521b71003be2a45)|;
 
 ### Generative Speculation
 
@@ -75,4 +75,4 @@
 
 ### Move Accumulation to Collecting Parameter
 
-- Simplificação do toString das classes Employee e PayCheck.
+- Simplificação do toString das classes Employee | Feito - [Link](https://github.com/Raksantos/payroll-refactor/commit/504e40f021569fc06b3a857b2ee0d947ad871db6) |.
