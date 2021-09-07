@@ -72,7 +72,7 @@ public class PaymentController {
     }
     
     public static void launchTimeCard(Scanner input, ArrayList<Employee> employees){
-        Employee employee = null;
+        Employee employee;
 
         employee = EmployeeUtils.findEmployee(input, employees);
 
@@ -108,7 +108,7 @@ public class PaymentController {
 
     public static void launchSaleResult(Scanner input, ArrayList<Employee> employees){
 
-        Employee employee = null;
+        Employee employee;
 
         employee = EmployeeUtils.findEmployee(input, employees);
 
@@ -138,7 +138,7 @@ public class PaymentController {
     
     public static void launchServiceTax(Scanner input, ArrayList<Employee> employees){
 
-        Employee updateEmployee = null;
+        Employee updateEmployee;
 
         updateEmployee = EmployeeUtils.findEmployee(input, employees);
 

@@ -40,9 +40,7 @@ public class EmployeeController {
 
     public static void registerNewEmployee(Scanner input, ArrayList<Employee> employees){
 
-        Employee employee = null;
-
-        employee = EmployeeUtils.readEmployeeBasicData(input).getEmployee();
+        Employee employee = EmployeeUtils.readEmployeeBasicData(input).getEmployee();
 
         if(employee == null){
             System.out.println("\nEmployee not registered!\n");
@@ -83,7 +81,7 @@ public class EmployeeController {
                                                         valueHolder.getComission(), employee.getPaymentData());
             
             updatedEmployee.setId(employee.getId());
-            updatedEmployee.setEmployeeSyndicate(auxiliarEmployee.getEmployeeSyndicate());
+            updatedEmployee.setEmployeeSyndicate(employee.getEmployeeSyndicate());
             
             EmployeeUtils.removeSpecificEmployee(employee.getId().toString(), employees);
 

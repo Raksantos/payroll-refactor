@@ -39,7 +39,7 @@
 
 ### Long Method
 
-- Métodos extensos que acumulam muitas variáveis locais; | Não Corrigido |
+- Métodos extensos que acumulam muitas variáveis locais; | Corrigido |
 
 - Métodos que acumulam decisões lógicas (toStrings); | Corrigido - [Link](https://github.com/Raksantos/payroll-refactor/commit/504e40f021569fc06b3a857b2ee0d947ad871db6) |
 
@@ -65,9 +65,9 @@
 
 - Foi aplicado o Design Pattern Strategy para solucionar um code smell da classe PaymentsControl, no método VerifyPayDate(), definindo uma interface com os métodos abstratos criando uma classe concreta para cada tipo de agenda, com as implementações do comportamento adequado para cada uma delas. Na classe PaymentSchedule, foi adicionado um atributo strategy, além disso foi adicionado um novo método nessa interface, de forma a modularizar o código (método getDateInSchedule) | Feito - [Link](https://github.com/Raksantos/payroll-refactor/commit/e869953224a5217a11b7ed6f3cdf40bb9b619cbd)|;
 
-### Command
+### Memento
 
-- Refatoração das funcionalidades de Undo/Redo para uma classe específica; | Feito - [Link](https://github.com/Raksantos/payroll-refactor/commit/f244c46228b8753cf55b93103cfeabae16020631) |
+- Refatoração das funcionalidades de Undo/Redo para uma classe específica, utilizando a estratégia de histórico do objeto Company para realizar as operações de salvar, undo e redo; | Feito - [Link](https://github.com/Raksantos/payroll-refactor/commit/f244c46228b8753cf55b93103cfeabae16020631) |
 
 ### Remove Generative Speculation
 
