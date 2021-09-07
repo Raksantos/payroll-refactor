@@ -71,7 +71,7 @@
 
 ### Remove Generative Speculation
 
-- Alguns métodos construtores, getters e setters nunca foram utilizados. Logo, foram removidos na refatoração. | Feito - [Link](https://github.com/Raksantos/payroll-refactor/commit/60a7ae71a9604d2545e90ae4b06c909b3bb9f1bf) |
+- Foi aplicado o Design Pattern Strategy para solucionar um code smell da classe PaymentsControl, no VerifyPayDate(), definindo uma interface com os métodos abstratos criando uma classe concreta para cada tipo de agenda, com as implementações do comportamento adequado para cada uma delas. Na classe PaymentSchedule, foi adicionado um atributo strategy, além disso foi adicionado um novo método nessa interface, de forma a modularizar o código (método getDateInSchedule) - [Link](https://github.com/Raksantos/payroll-refactor/commit/60a7ae71a9604d2545e90ae4b06c909b3bb9f1bf) |
 
 ### Move Accumulation to Collecting Parameter
 
