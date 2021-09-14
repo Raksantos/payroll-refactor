@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import controllers.EmployeeController;
 import controllers.PaymentController;
-import memento.MementoCompany;
+import memento.CaretakerCompany;
 import models.Company;
 
 public class Menu {
@@ -16,7 +16,7 @@ public class Menu {
 
         Scanner input = new Scanner(System.in);
         
-        MementoCompany memento = new MementoCompany();
+        CaretakerCompany caretaker = new CaretakerCompany(company);
         
         try{
             while(option != 0){
@@ -46,7 +46,7 @@ public class Menu {
                         break;
                     case 1:
 
-                        memento.save(company);
+                        caretaker.save();
 
                         EmployeeController.registerNewEmployee(input, company.getEmployees());
                         
@@ -55,7 +55,7 @@ public class Menu {
 
                         if(!EmployeeUtils.warningEmptyEmployeesList(company.getEmployees())){
 
-                            memento.save(company);
+                            caretaker.save();
 
                             EmployeeController.listEmployees(company.getEmployees());    
                         
@@ -67,7 +67,7 @@ public class Menu {
 
                         if(!EmployeeUtils.warningEmptyEmployeesList(company.getEmployees())){
 
-                            memento.save(company);
+                            caretaker.save();
 
                             EmployeeUtils.listHourly(company.getEmployees());
 
@@ -78,7 +78,7 @@ public class Menu {
                     case 4:
                         if(!EmployeeUtils.warningEmptyEmployeesList(company.getEmployees())){
 
-                            memento.save(company);
+                            caretaker.save();
 
                             EmployeeUtils.listComissioned(company.getEmployees());
     
@@ -89,7 +89,7 @@ public class Menu {
                     case 5:
                         if(!EmployeeUtils.warningEmptyEmployeesList(company.getEmployees())){
 
-                            memento.save(company);
+                            caretaker.save();
 
                             EmployeeController.listEmployees(company.getEmployees());
     
@@ -99,7 +99,7 @@ public class Menu {
                     case 6:
                         if(!EmployeeUtils.warningEmptyEmployeesList(company.getEmployees())){
 
-                            memento.save(company);
+                            caretaker.save();
 
                             EmployeeController.listEmployees(company.getEmployees());
     
@@ -114,7 +114,7 @@ public class Menu {
                     case 8:
                         if(!EmployeeUtils.warningEmptyEmployeesList(company.getEmployees())){
 
-                            memento.save(company);
+                            caretaker.save();
 
                             EmployeeController.listEmployees(company.getEmployees());
 
@@ -133,7 +133,7 @@ public class Menu {
                     case 10:
                         if(!EmployeeUtils.warningEmptyEmployeesList(company.getEmployees())){
 
-                            memento.save(company);
+                            caretaker.save();
 
                             EmployeeController.listEmployees(company.getEmployees());
 
@@ -143,7 +143,7 @@ public class Menu {
                         break;
                     case 11:
                         
-                        memento.save(company);
+                        caretaker.save();
                         
                         company.getPaymentSchedules().add(EmployeeUtils.createPaymentSchedule(input));
                         
@@ -154,13 +154,13 @@ public class Menu {
 
                     case 13:
                         
-                        company = memento.undo(company);
+                        company = caretaker.undo();
                         
                         break;
 
                     case 14:
                         
-                        company = memento.redo(company);
+                        company = caretaker.redo();
 
                         break;
                     default:

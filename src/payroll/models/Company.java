@@ -1,6 +1,7 @@
 package models;
 import java.util.ArrayList;
 
+import memento.MementoCompany;
 import models.services.payment.PaymentList;
 import models.services.payment.PaymentSchedule;
 
@@ -41,5 +42,9 @@ public class Company implements Serializable{
 
     public void setPaymentSchedules(ArrayList<PaymentSchedule> paymentSchedules) {
         this.paymentSchedules = paymentSchedules;
+    }
+
+    public MementoCompany saveState(){
+        return new MementoCompany(this);
     }
 }
