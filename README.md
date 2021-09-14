@@ -67,7 +67,7 @@
 
 ### Memento
 
-- Refatoração das funcionalidades de Undo/Redo para uma classe específica, utilizando a estratégia de histórico do objeto Company para realizar as operações de salvar, undo e redo; | Feito - [Link](https://github.com/Raksantos/payroll-refactor/commit/9f88de9ba48171d0df4d7be161606091d237803e) |
+- Refatoração das funcionalidades de Undo/Redo para uma classe específica, utilizando a estratégia de histórico do objeto Company para realizar as operações de salvar, undo e redo; | Feito - [Link](https://github.com/Raksantos/payroll-refactor/commit/43760c23ba4d171c07e90365a198a64c28ce3c3e) |
 
 ### Remove Generative Speculation
 
